@@ -22,7 +22,7 @@ A comprehensive web application for managing cattle inventory built with Angular
 
 ### Prerequisites
 - Node.js (v20.19+ or v22.12+)
-- npm (comes with Node.js)
+- Angular CLI
 
 ### Installation Steps
 
