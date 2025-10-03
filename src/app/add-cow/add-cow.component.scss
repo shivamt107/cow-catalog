@@ -1,0 +1,77 @@
+.add-cow-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.header-actions {
+  margin-bottom: 1rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  min-height: 5rem;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.form-group input,
+.form-group p-select,
+.form-group p-inputnumber {
+  flex-shrink: 0;
+}
+
+.form-group p-message {
+  min-height: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  align-items: flex-start;
+}
+
+.required {
+  color: #dc3545;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  padding-top: 1rem;
+}
+
+::ng-deep p-message {
+  .p-message {
+    outline-style: none;
+    background: none;
+  }
+  .p-message-content{
+    padding: 2px 0px 0px 4px
+  }
+  .p-message-text{
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+  }
+}

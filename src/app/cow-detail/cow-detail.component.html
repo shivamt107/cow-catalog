@@ -1,0 +1,139 @@
+<app-header></app-header>
+
+<div class="cow-detail-container" *ngIf="cow; else notFound">
+  <div class="header">
+    <h1>Cow Details</h1>
+    <p-button 
+      label="Back to List"
+      icon="pi pi-arrow-left"
+      severity="secondary"
+      (onClick)="goBack()">
+    </p-button>
+  </div>
+
+  <div class="detail-grid">
+    <div class="main-info">
+      <p-card header="Basic Information">
+        <div class="info-grid">
+          <div class="info-item">
+            <label class="info-label">Ear Tag</label>
+            <div class="info-value font-bold large">{{cow.earTag}}</div>
+          </div>
+          
+          <div class="info-item">
+            <label class="info-label">Sex</label>
+            <div class="info-value">{{cow.sex}}</div>
+          </div>
+          
+          <div class="info-item">
+            <label class="info-label">Pen</label>
+            <div class="info-value">{{cow.pen}}</div>
+          </div>
+          
+          <div class="info-item">
+            <label class="info-label">Status</label>
+            <div class="info-value">
+              <p-tag 
+                [value]="cow.status"
+                [severity]="getStatusSeverity(cow.status)">
+              </p-tag>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <label class="info-label">Added to Catalog</label>
+            <div class="info-value">{{formatDate(cow.createdDate)}}</div>
+          </div>
+          
+          <div class="info-item">
+            <label class="info-label">Last Event</label>
+            <div class="info-value">{{formatDate(cow.lastEventDate)}}</div>
+          </div>
+        </div>
+      </p-card>
+    </div>
+
+    <div class="weight-info">
+      <p-card header="Weight Information">
+        <div class="weight-stats">
+          <div class="stat-item">
+            <label class="info-label">Current Weight</label>
+            <div class="info-value large font-bold">
+              <span *ngIf="getCurrentWeight(); else noWeight">
+                {{getCurrentWeight()}} kg
+              </span>
+              <ng-template #noWeight>
+                <span class="muted">Not recorded</span>
+              </ng-template>
+            </div>
+          </div>
+          
+          <div class="stat-item">
+            <label class="info-label">Daily Weight Gain</label>
+            <div class="info-value">
+              <span *ngIf="dailyWeightGain !== null; else noGain" 
+                    [class]="dailyWeightGain >= 0 ? 'positive' : 'negative'">
+                {{dailyWeightGain > 0 ? '+' : ''}}{{dailyWeightGain.toFixed(2)}} kg/day
+              </span>
+              <ng-template #noGain>
+                <span class="muted">0</span>
+              </ng-template>
+            </div>
+          </div>
+        </div>
+      </p-card>
+    </div>
+  </div>
+
+  <div class="timeline-section">
+    <p-card header="Event Timeline">
+      <p-timeline 
+        *ngIf="cow.events.length > 0; else noEvents"
+        [value]="cow.events" 
+       >
+        <ng-template pTemplate="content" let-event>
+          <div class="timeline-content">
+            <div class="event-header">
+              <h4>{{event.type}}</h4>
+              <span class="event-date">{{formatDateTime(event.date)}}</span>
+            </div>
+            <p class="event-description">{{event.description}}</p>
+            <div *ngIf="event.weight || (event.previousPen && event.newPen)" class="event-details">
+              <div *ngIf="event.weight">
+                <strong>Weight:</strong> {{event.weight}} kg
+              </div>
+              <div *ngIf="event.previousPen && event.newPen">
+                <strong>Moved:</strong> {{event.previousPen}} → {{event.newPen}}
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </p-timeline>
+      
+      <ng-template #noEvents>
+        <div class="empty-state">
+          <i class="pi pi-calendar"></i>
+          <p>No events recorded for this cow</p>
+        </div>
+      </ng-template>
+    </p-card>
+  </div>
+</div>
+
+<ng-template #notFound>
+  <div class="cow-detail-container">
+    <p-card>
+      <div class="empty-state">
+        <i class="pi pi-exclamation-triangle"></i>
+        <h2>Cow Not Found</h2>
+        <p>The requested cow could not be found.</p>
+        <p-button 
+          label="Back to List"
+          icon="pi pi-arrow-left"
+          severity="secondary"
+          (onClick)="goBack()">
+        </p-button>
+      </div>
+    </p-card>
+  </div>
+</ng-template>

@@ -1,0 +1,126 @@
+<app-header></app-header>
+
+<div class="add-cow-container">
+  <div class="header-actions">
+    <p-button 
+      label="Back" 
+      icon="pi pi-arrow-left" 
+      severity="secondary"
+      size="small"
+      type="button"
+      (onClick)="goBack()">
+    </p-button>
+  </div>
+  
+  <p-card header="Add New Cow">
+    <form [formGroup]="cowForm" (ngSubmit)="onSubmit()">
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="earTag">
+            Ear Tag <span class="required">*</span>
+          </label>
+          <input 
+            id="earTag"
+            type="text" 
+            pInputText
+            formControlName="earTag"
+            placeholder="Enter ear tag (e.g., C001)"
+            [class.ng-invalid]="isFieldInvalid('earTag')">
+          <p-message 
+            *ngIf="isFieldInvalid('earTag')"
+            severity="error" 
+            [text]="getFieldError('earTag')">
+          </p-message>
+        </div>
+
+        <div class="form-group">
+          <label for="sex">
+            Sex <span class="required">*</span>
+          </label>
+          <p-select 
+            id="sex"
+            [options]="sexOptions"
+            formControlName="sex"
+            optionLabel="label"
+            optionValue="value"
+            placeholder="Select sex"
+            [class.ng-invalid]="isFieldInvalid('sex')">
+          </p-select>
+          <p-message 
+            *ngIf="isFieldInvalid('sex')"
+            severity="error" 
+            [text]="getFieldError('sex')">
+          </p-message>
+        </div>
+
+        <div class="form-group">
+          <label for="pen">
+            Pen <span class="required">*</span>
+          </label>
+          <p-select 
+            id="pen"
+            [options]="penOptions"
+            formControlName="pen"
+            optionLabel="label"
+            optionValue="value"
+            placeholder="Select pen"
+            [class.ng-invalid]="isFieldInvalid('pen')">
+          </p-select>
+          <p-message 
+            *ngIf="isFieldInvalid('pen')"
+            severity="error" 
+            [text]="getFieldError('pen')">
+          </p-message>
+        </div>
+
+        <div class="form-group">
+          <label for="status">
+            Status <span class="required">*</span>
+          </label>
+          <p-select 
+            id="status"
+            [options]="statusOptions"
+            formControlName="status"
+            optionLabel="label"
+            optionValue="value"
+            placeholder="Select status"
+            [class.ng-invalid]="isFieldInvalid('status')">
+          </p-select>
+          <p-message 
+            *ngIf="isFieldInvalid('status')"
+            severity="error" 
+            [text]="getFieldError('status')">
+          </p-message>
+        </div>
+
+        <div class="form-group">
+          <label for="weight">Weight (kg)</label>
+          <p-inputnumber
+            id="weight"
+            formControlName="weight"
+            mode="decimal"
+            [minFractionDigits]="0"
+            [maxFractionDigits]="2"
+            placeholder="Enter weight"
+            suffix=" kg"
+            [class.ng-invalid]="isFieldInvalid('weight')">
+          </p-inputnumber>
+          <p-message 
+            *ngIf="isFieldInvalid('weight')"
+            severity="error" 
+            [text]="getFieldError('weight')">
+          </p-message>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <p-button 
+          label="Save Cow" 
+          icon="pi pi-check" 
+          type="submit"
+          [disabled]="cowForm.invalid">
+        </p-button>
+      </div>
+    </form>
+  </p-card>
+</div>

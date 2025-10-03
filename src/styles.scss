@@ -1,0 +1,25 @@
+@import 'primeicons/primeicons.css';
+/* You can add global styles to this file, and also import other style files */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  background-color: #f8f9fa;
+}
+
+.p-component {
+  font-size: 14px;
+}
+
+.p-card .p-card-body {
+  padding: 1.5rem;
+}
+
+.p-card .p-card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+}

@@ -1,0 +1,113 @@
+<app-header></app-header>
+
+<div class="cow-list-container">
+  <p-card>
+    <ng-template pTemplate="header">
+      <div class="header">
+        <h2>Cow Catalog ({{filteredCows.length}})</h2>
+        <p-button 
+          label="Add New Cow"
+          icon="pi pi-plus" 
+          (onClick)="addNewCow()">
+        </p-button>
+      </div>
+    </ng-template>
+
+    <div class="filters-section">
+      <div class="filter-row">
+        <div class="filter-item">
+          <label for="searchTag">Search by Tag</label>
+          <input 
+            id="searchTag"
+            type="text" 
+            pInputText
+            placeholder="Enter ear tag..." 
+            [(ngModel)]="searchTag"
+            (ngModelChange)="applyFilters()">
+        </div>
+        
+        <div class="filter-item">
+          <label for="statusFilter">Status</label>
+          <p-select 
+            id="statusFilter"
+            [options]="statusOptions"
+            [(ngModel)]="selectedStatus"
+            (ngModelChange)="applyFilters()"
+            optionLabel="label"
+            optionValue="value"
+            placeholder="All Statuses">
+          </p-select>
+        </div>
+        
+        <div class="filter-item">
+          <label for="penFilter">Pen</label>
+          <p-select 
+            id="penFilter"
+            [options]="penOptions"
+            [(ngModel)]="selectedPen"
+            (ngModelChange)="applyFilters()"
+            optionLabel="label"
+            optionValue="value"
+            placeholder="All Pens">
+          </p-select>
+        </div>
+        
+        <div class="filter-item">
+          <p-button 
+            label="Clear"
+            icon="pi pi-times"
+            severity="secondary"
+            (onClick)="clearFilters()"
+            [disabled]="!searchTag && !selectedStatus && !selectedPen">
+          </p-button>
+        </div>
+      </div>
+    </div>
+
+    <p-table [value]="filteredCows" styleClass="p-datatable-sm">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Ear Tag</th>
+          <th>Sex</th>
+          <th>Pen</th>
+          <th>Status</th>
+          <th>Last Event</th>
+          <th>Actions</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-cow>
+        <tr>
+          <td class="font-bold">{{cow.earTag}}</td>
+          <td>{{cow.sex}}</td>
+          <td>{{cow.pen}}</td>
+          <td>
+            <p-tag 
+              [value]="cow.status"
+              [severity]="getStatusSeverity(cow.status)">
+            </p-tag>
+          </td>
+          <td>{{formatDate(cow.lastEventDate)}}</td>
+          <td>
+            <p-button 
+              icon="pi pi-eye"
+              severity="info"
+              size="small"
+              (onClick)="viewCowDetail(cow)">
+            </p-button>
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage">
+        <tr>
+          <td colspan="6" class="no-data">
+            <div class="empty-state">
+              <i class="pi pi-search"></i>
+              <p>No cows found</p>
+              <small>Try adjusting your search criteria</small>
+            </div>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </p-card>
+</div>
