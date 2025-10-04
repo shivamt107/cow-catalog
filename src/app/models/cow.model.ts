@@ -5,7 +5,7 @@ export enum CowSex {
 
 export enum CowStatus {
   Active = 'Active',
-  InTreatment = 'In Treatment',
+  InTreatment = 'InTreatment',
   Deceased = 'Deceased'
 }
 
