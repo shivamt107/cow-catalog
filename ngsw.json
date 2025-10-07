@@ -1,0 +1,109 @@
+{
+  "configVersion": 1,
+  "timestamp": 1759825284258,
+  "index": "/cow-catalog/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/cow-catalog/chunk-2VMBMNCH.js",
+        "/cow-catalog/chunk-36JN3LZY.js",
+        "/cow-catalog/chunk-4VKDULOE.js",
+        "/cow-catalog/chunk-DLFWAVIA.js",
+        "/cow-catalog/chunk-F62SQUEV.js",
+        "/cow-catalog/chunk-JFNMUKFK.js",
+        "/cow-catalog/chunk-U4YC6SA7.js",
+        "/cow-catalog/chunk-U6SNL4G5.js",
+        "/cow-catalog/chunk-UJO5BMKH.js",
+        "/cow-catalog/chunk-WUECX73L.js",
+        "/cow-catalog/chunk-ZLLHL3HH.js",
+        "/cow-catalog/favicon.ico",
+        "/cow-catalog/index.html",
+        "/cow-catalog/main-JXOOTFGA.js",
+        "/cow-catalog/manifest.webmanifest",
+        "/cow-catalog/polyfills-5CFQRCPP.js",
+        "/cow-catalog/styles-4ZONA3VT.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/cow-catalog/icons/icon-128x128.png",
+        "/cow-catalog/icons/icon-144x144.png",
+        "/cow-catalog/icons/icon-152x152.png",
+        "/cow-catalog/icons/icon-192x192.png",
+        "/cow-catalog/icons/icon-384x384.png",
+        "/cow-catalog/icons/icon-512x512.png",
+        "/cow-catalog/icons/icon-72x72.png",
+        "/cow-catalog/icons/icon-96x96.png",
+        "/cow-catalog/media/primeicons-4GST5W3O.woff2",
+        "/cow-catalog/media/primeicons-DHQU4SEP.svg",
+        "/cow-catalog/media/primeicons-GEFHGEHP.ttf",
+        "/cow-catalog/media/primeicons-P53SE5CV.woff"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/cow-catalog/chunk-2VMBMNCH.js": "e8e7a52cb7069ae0c639d9992f277999c305b08a",
+    "/cow-catalog/chunk-36JN3LZY.js": "adbcb022925d6fcbfad42ff9c71be160b5727f89",
+    "/cow-catalog/chunk-4VKDULOE.js": "aaeaa65a4b0e00902d73156b27bec7d4546ed105",
+    "/cow-catalog/chunk-DLFWAVIA.js": "4ef81ac905f984cca31383bee0e4ee12608a730e",
+    "/cow-catalog/chunk-F62SQUEV.js": "a8b6d19f8147067cb51e718ba7b4e31a04e78bf7",
+    "/cow-catalog/chunk-JFNMUKFK.js": "8e91c048e77f71287ccc19a71d5355316ec71226",
+    "/cow-catalog/chunk-U4YC6SA7.js": "561353c3b41b896394ba9398bef61f6dc0ebf27d",
+    "/cow-catalog/chunk-U6SNL4G5.js": "6d34b9b84fd0a3d77495a58f3b221f9ef838c0e7",
+    "/cow-catalog/chunk-UJO5BMKH.js": "c9cd6f1ad14b282e5b604b9bdf9d9526882e2998",
+    "/cow-catalog/chunk-WUECX73L.js": "38ed2bf7927646c76f6084545604d01a398c5d26",
+    "/cow-catalog/chunk-ZLLHL3HH.js": "4c03115d9f790a66d09032f60c400c08e21e32b5",
+    "/cow-catalog/favicon.ico": "9c39f434fe1261f68c5e3eefdf734630d99c5670",
+    "/cow-catalog/icons/icon-128x128.png": "f912963bdc6d5a38d8f1dd0afbaab2ce8d657acb",
+    "/cow-catalog/icons/icon-144x144.png": "b155fd5f2fd5d2ea7760721063003c4cd95fd783",
+    "/cow-catalog/icons/icon-152x152.png": "eae6e0f0c8afb8aaae339e2a569b43e9238e5e6c",
+    "/cow-catalog/icons/icon-192x192.png": "15c4180454633880d98674aa7394656196c91584",
+    "/cow-catalog/icons/icon-384x384.png": "94a915751ef6c9282df9aea405ad679230631814",
+    "/cow-catalog/icons/icon-512x512.png": "1de182f76f7329dfa8f9fcdd1fdcdd695bea6a99",
+    "/cow-catalog/icons/icon-72x72.png": "aa88a6096bd973be7f6d7a5489bfa6bc2463f8c4",
+    "/cow-catalog/icons/icon-96x96.png": "7fb8f59c30ce2ff12c700321a0b39e14b3dc8f95",
+    "/cow-catalog/index.html": "2691d2868556f136ffee333c6b013922daf6c270",
+    "/cow-catalog/main-JXOOTFGA.js": "272d93fca7c06afb705332ae6aade227fbbec483",
+    "/cow-catalog/manifest.webmanifest": "6de8198570d954fd7910df8e975dd3a75a5c6d9c",
+    "/cow-catalog/media/primeicons-4GST5W3O.woff2": "837c1279b6af9d297f34fdb43e6fcc9206a79f32",
+    "/cow-catalog/media/primeicons-DHQU4SEP.svg": "a07ae39027c1a780b42fd82fad7575c2924d9d28",
+    "/cow-catalog/media/primeicons-GEFHGEHP.ttf": "3b878ca7e88945a8ec25814810b95367d8977ae6",
+    "/cow-catalog/media/primeicons-P53SE5CV.woff": "361e3af71bb4e515feead2f787348a92a5527158",
+    "/cow-catalog/polyfills-5CFQRCPP.js": "f2241e9a25858f895ce299d15f6f22e849e2fd72",
+    "/cow-catalog/styles-4ZONA3VT.css": "9ab8fb91be365168b87e91cf673c07c51429858f"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}
