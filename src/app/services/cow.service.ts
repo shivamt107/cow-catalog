@@ -8,6 +8,7 @@ import { Cow, CowEvent, CowFilters, CowSex, CowStatus, EventType } from '../mode
 })
 export class CowService {
   private readonly STORAGE_KEY = 'cow-catalog-data';
+  private readonly FILTERS_STORAGE_KEY = 'cow-catalog-filters';
   private cowsSubject = new BehaviorSubject<Cow[]>([]);
   private filtersSubject = new BehaviorSubject<CowFilters>({});
 
@@ -16,6 +17,7 @@ export class CowService {
 
   constructor(private http: HttpClient) {
     this.loadCows();
+    this.loadFilters();
   }
 
   private loadCows(): void {
@@ -61,6 +63,23 @@ export class CowService {
 
   private saveCows(): void {
     localStorage.setItem(this.STORAGE_KEY, JSON.stringify(this.cowsSubject.value));
+  }
+
+  private loadFilters(): void {
+    const savedFilters = localStorage.getItem(this.FILTERS_STORAGE_KEY);
+    if (savedFilters) {
+      try {
+        const filters = JSON.parse(savedFilters);
+        this.filtersSubject.next(filters);
+      } catch (error) {
+        console.error('Failed to load saved filters:', error);
+        this.filtersSubject.next({});
+      }
+    }
+  }
+
+  private saveFilters(filters: CowFilters): void {
+    localStorage.setItem(this.FILTERS_STORAGE_KEY, JSON.stringify(filters));
   }
 
 
@@ -124,6 +143,13 @@ export class CowService {
 
   setFilters(filters: CowFilters): void {
     this.filtersSubject.next(filters);
+    this.saveFilters(filters);
+  }
+
+  clearFilters(): void {
+    const emptyFilters: CowFilters = {};
+    this.filtersSubject.next(emptyFilters);
+    this.saveFilters(emptyFilters);
   }
 
   getFilters(): CowFilters {
